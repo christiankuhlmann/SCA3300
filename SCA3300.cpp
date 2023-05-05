@@ -70,8 +70,6 @@ boolean SCA3300::begin(void) {
   while (millis() - startmillis < 1) ;
   //Set measurement mode
   transfer(modeCMD[SCA3300_mode]); //Set mode on hardware
-  //We're good, so Enable angle outputs
-  transfer(EnaAngOut);
   //The first response after reset is undefined and shall be discarded
   //wait 5 ms to stablize
   startmillis = millis();
@@ -151,7 +149,7 @@ boolean SCA3300::available(void) {
   if (crcerr || statuserr) errorflag = true;
   SCAData.StatusSum = SCA3300_DATA;
 
-  transfer(RdSTO)
+  transfer(RdSTO);
   if (crcerr || statuserr) errorflag = true;
   SCAData.STO = SCA3300_DATA;
 
