@@ -1,15 +1,26 @@
 /******************************************************************************
 SCA3300.h
 SCA3300 Arduino Library Header File
-David Armstrong
-Version 3.2.0 - September 3, 2021
+Christian Kuhlmann
+Version 1.0 - May 05 2023
+https://github.com/christiankuhlmann/SCA3300
+
+This library is based off SCL3300 by David Armstrong
 https://github.com/DavidArmstrong/SCA3300
+
+Changes from SCL3300:
+- Fixes to SCL3300::available()
+    # Incorrect data assignment to data object
+- Altered acceleration calculations
+    # SCA3300 has different ratio for calculating acceleration
+- Moved from doubles to floats 
+    # 32bit architecture and 32 bit data, doubles ineffcicient
+- Changed WHOAMI
+    # SCL3300 is 0xc1, SCA3300 is 0x51s
+
 
 Resources:
 Uses SPI.h for SPI operation
-
-Development environment specifics:
-Arduino IDE 1.8.9, 1.8.11, 1.8.12, 1.8.13, 1.8.15
 
 This code is released under the [MIT License](http://opensource.org/licenses/MIT).
 Please review the LICENSE.md file included with this example.
